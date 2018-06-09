@@ -1,0 +1,74 @@
+<!--
+	This is the Deeplearni.ng Landing page.
+	It is a single page application, containing both the upload and reporting functionality. 
+-->
+{% extends "Base.html" %}
+{% block body %}
+<div>
+<!--Get the msg parameter sent from server. It is in JSON format.-->
+<script>
+	var landingPage_msg = {{ msg|tojson }}
+</script>
+
+<!--The body of the application is divided into sections. Corresponding to different section in the application.-->
+<!--Header Section-->
+<div class="row landingPage_topRow">
+	<div class="landingPage_leftCol_1">
+		<div class="landingPage_headerTitle">
+			<h1>Compressed Sensing</h1>
+			<h4>A demo application for Compressed Sensing technique!</h4>
+			<a href="https://www.linkedin.com/company/deeplearni-ng/"><img class="landingPage_Social" src="/static/images/BaseImg/linkedin.png"></a>
+			<a href="https://twitter.com/thedeeplearning?lang=en"><img class="landingPage_Social" src="/static/images/BaseImg/twitter.png"></a>
+		</div>
+	</div>
+	<div class="landingPage_rightCol_1">
+		<div class="landingPage_headerTitle">
+		</div>
+	</div>
+</div>
+<div class="row landingPage_secondRow">
+	<div class="landingPage_centerCol_1">
+		<a class="landingPage_TopLinks" href="#" data-toggle="modal" data-target="#UploadFormModal"><img id="addtxtFileImg" src="/static/images/BaseImg/add.png" width="50" height="50"></a>
+		<div id="UploadFile">
+			
+		</div>
+		<div id="ProccessedFile">
+			
+		</div>
+	</div>
+</div>
+<!--Footer.-->
+<div class="row landingPage_sixthRow">
+	<div class="landingPage_centerCol_1">
+		<p class="landingPage_FooterNote"> &copy; 2018 Ashkan Dehghan ALL RIGHTS RESERVED</p>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="UploadFormModal" role="dialog">
+<div class="modal-dialog">
+  <div class="modal-content">
+	<div class="modal-header">
+	  <h4 class="modal-title">Upload JPEG File</h4>
+	</div>
+	<div class="modal-body">
+		<form class="UploadForm" method="post" action="/uploadfile" enctype="multipart/form-data">
+			<div class="form-group">
+				<input type=file name=file>
+				<label class="radio-inline">
+					<input type="radio" value="compress" checked="checked" name="compress_or_recover_img">Compress Image
+				</label>
+				<label class="radio-inline">
+					<input type="radio" value="recover" name="compress_or_recover_img">Recover Image
+				</label>
+				<div class="formSubmitButton">
+					<input class="btn btn-success" type="submit">
+				</div>
+			</div>
+		</form>
+	</div>
+  </div>
+</div>
+</div>
+<!---->
+</div>
+{% endblock %}

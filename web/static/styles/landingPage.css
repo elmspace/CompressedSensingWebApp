@@ -1,0 +1,119 @@
+
+.landingPage_topRow{
+    background-color: #003d80;
+    height: 450px;
+    padding-bottom: 25px;
+    background-image: url("/static/images/BaseImg/landingPageTopBG.png");
+    background-repeat: repeat;
+}
+
+.landingPage_secondRow{
+    background-color: white;
+    padding-bottom: 25px;
+    padding-top: 50px;
+    min-height: 500px;
+}
+
+.landingPage_sixthRow{
+    background-color: white;
+    color: black;
+    height: 20px;
+}
+
+.custom-file-input{
+    cursor: pointer;
+}
+
+.formSubmitButton{
+    margin-top: 10px;
+    text-align: right;
+}
+
+#addtxtFileImg{
+    margin: 10px;
+}
+
+.landingPage_TopLinks{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.landingPage_leftCol_1{
+    width: 50%;
+}
+
+
+.landingPage_rightCol_1{
+    width: 50%;
+    text-align: center;
+}
+
+.landingPage_leftCol_2{
+    width: 10%;
+    text-align: center;
+}
+
+
+.landingPage_rightCol_2{
+    width: 90%;
+    text-align: center;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+
+.landingPage_headerTitle{
+    color: white;
+    padding: 50px;
+}
+
+.landingPage_headerTitle h1{
+    font-size: 55px;
+}
+.landingPage_headerTitle h5{
+    font-size: 15px;
+}
+
+
+
+.landingPage_centerCol_1{
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+}
+
+
+.landingPage_Social{
+    width: 40px;
+    cursor:pointer;
+}
+
+
+.landingPage_FooterNote{
+    padding-top: 15px;
+}
+
+
+
+table, th, td {
+   border: 1px solid grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .landingPage_leftCol_1, .landingPage_rightCol_1, .landingPage_leftCol_2, .landingPage_rightCol_2{   
+        width: 100%;
+        padding: 0;
+    }
+    .landingPage_centerCol_1{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .landingPage_headerTitle{
+        padding: 30px;
+    }
+
+}
+
+

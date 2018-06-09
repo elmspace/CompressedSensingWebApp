@@ -1,0 +1,8 @@
+flask
+numpy
+pandas
+matplotlib
+scipy
+cvxpy
+pylbfgs
+Pillow

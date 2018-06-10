@@ -95,6 +95,19 @@
 }
 
 
+.imgs{
+    width: 32%;
+    padding: 1px;
+}
+
+.imgs img{
+    height: 300px;
+}
+
+#ProccessedFile{
+    display:-webkit-box;
+    text-align: center;
+}
 
 table, th, td {
    border: 1px solid grey;
@@ -113,7 +126,12 @@ table, th, td {
     .landingPage_headerTitle{
         padding: 30px;
     }
-
+    .imgs{
+        width: 100%;
+    }
+    #ProccessedFile{
+        display: inline;
+    }
 }
 
 

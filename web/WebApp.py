@@ -6,9 +6,10 @@ from werkzeug.utils import secure_filename;
 import sys, os;
 import flask;
 import json;
-from time import gmtime, strftime;
+import datetime;
 
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'analytics_modules/')));
+from CompressManager import *;
 
 # This is where we save uploaded  files
 UPLOAD_FOLDER = './UploadFiles/';
@@ -53,7 +54,9 @@ def UploadFile():
 	msg = {};
 	# Check if the request is POST or GET.
 	if(request.method == 'POST'):
-		compress_or_recover_img = request.form["compress_or_recover_img"];
+		compression_rate_x = request.form["compression_rate_x"];
+		compression_rate_y = request.form["compression_rate_y"];
+		
 		# Check if the file exists in the request
 		if 'file' not in request.files:
 			# If not, return to landing page with msg, indicating that the use must add a file
@@ -71,13 +74,17 @@ def UploadFile():
 		# Check to make sure the file uploaded is txt
 		if file and allowed_file(file.filename):
 			# Create a file name, based on time/date of file upload.
-			filename = "UploadFile";
+			filename = "UploadFile_"+str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"));
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename+".jpg"));
 			
-			
-
-			msg["msg"] = "File saved successfully.";			
-			return render_template('landingPage.html', msg=msg);
+			status = Compress(filename,compression_rate_x,compression_rate_y);
+			if(status):
+				msg["msg"] = "pass";
+				msg["file_name"] = str(filename);		
+				return render_template('landingPage.html', msg=msg);
+			else:
+				msg["msg"] = "Error while performing compression.";			
+				return render_template('landingPage.html', msg=msg);
 		else:
 			# If the file uploaded is not a txt file, raise error for user.
 			msg["msg"] = "File not uploaded.  file must be in txt format.";

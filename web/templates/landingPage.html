@@ -17,8 +17,8 @@
 		<div class="landingPage_headerTitle">
 			<h1>Compressed Sensing</h1>
 			<h4>A demo application for Compressed Sensing technique!</h4>
-			<a href="https://www.linkedin.com/company/deeplearni-ng/"><img class="landingPage_Social" src="/static/images/BaseImg/linkedin.png"></a>
-			<a href="https://twitter.com/thedeeplearning?lang=en"><img class="landingPage_Social" src="/static/images/BaseImg/twitter.png"></a>
+			<a href="https://www.linkedin.com/in/ashkan-dehghan-phd-14591086/"><img class="landingPage_Social" src="/static/images/BaseImg/linkedin.png"></a>
+			<a href="https://twitter.com/elmspace"><img class="landingPage_Social" src="/static/images/BaseImg/twitter.png"></a>
 		</div>
 	</div>
 	<div class="landingPage_rightCol_1">
@@ -33,7 +33,15 @@
 			
 		</div>
 		<div id="ProccessedFile">
-			
+			<div class="imgs" id="originalImg">
+				<h4>Original Img:</h4>
+			</div>
+			<div class="imgs" id="compressedImg">
+				<h4>Compressed Img:</h4>
+			</div>
+			<div class="imgs" id="recoveredImg">
+				<h4>Recovered Img:</h4>
+			</div>
 		</div>
 	</div>
 </div>
@@ -54,12 +62,18 @@
 		<form class="UploadForm" method="post" action="/uploadfile" enctype="multipart/form-data">
 			<div class="form-group">
 				<input type=file name=file>
-				<label class="radio-inline">
-					<input type="radio" value="compress" checked="checked" name="compress_or_recover_img">Compress Image
-				</label>
-				<label class="radio-inline">
-					<input type="radio" value="recover" name="compress_or_recover_img">Recover Image
-				</label>
+				
+
+				<div class="form-group">
+					<label for="compression_rate_x">X-Compression:</label>
+					<input type="text" class="form-control" id="compression_rate_x" name="compression_rate_x" type="number" step="0.01" min="0.01" max="1.0">
+				</div>
+				<div class="form-group">
+					<label for="compression_rate_y">Y-Compression:</label>
+					<input type="text" class="form-control" id="compression_rate_y" name="compression_rate_y" type="number" step="0.01" min="0.01" max="1.0">
+				</div>
+
+
 				<div class="formSubmitButton">
 					<input class="btn btn-success" type="submit">
 				</div>
